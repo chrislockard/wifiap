@@ -9,16 +9,20 @@ WiFi Adapter with good driver support, ability to utilize all WiFi modes, and pr
 
 ## Edit dnsmasq.conf
 Prevent dns on the loopback interface by commenting out line 115 (or nearby) containing:
-`no-dhcp-interface=lo`
+```
+no-dhcp-interface=lo
+```
 
 Enable the integrated DHCP server and provide IP address range and lease time (around line 157):
-`dhcp-range=10.0.0.2,10.0.0.20,12h`
+```
+dhcp-range=10.0.0.2,10.0.0.20,12h
+```
 *note:* increase 20 as needed to allow more devices on the subnet and the dhcp lease as desired
 
 ## Create hostapd.conf
 This is the file hostapd will use for configuration. Specify the interface, driver (nl80211 is the one I’ve had most success with), SSID, hardware mode, channel, and security parameters:
 
-`
+```
 interface=wlan0
 driver=nl80211
 ssid=<ssid can contain spaces>
@@ -26,14 +30,16 @@ hw_mode=g
 channel=11
 wpa=2
 wpa_passphrase=<password>
-`
+```
 
 ## VM Network Configuration
 Ensure the VM is set to *Bridged* networking on the interface that will be providing Internet access to the VM
 
 # Usage
 Ensure the kernel picked up your wifi adapter:
-`ifconfig -a`
+```
+ifconfig -a
+```
 
 Run `./wifiap.sh` . It will prompt you for three things:
 1. Monitor interface (this will likely be wlan0 or wlan1 in Kali)
