@@ -1,3 +1,19 @@
+# DEPRECATED
+This script no longer works as of November 2021. 
+
+Kali now makes it much easier to accomplish this:
+1. Create a new WiFi connection using "Advanced Network Configuration"
+2. Set Mode drop-down to "Hotspot"
+3. Set Band to "Automatic"
+4. Select the correct wifi adapter from "Device" (this will usually be wlan1)
+5. Set Cloned MAC Address to "Random"
+6. Ensure MTU is "Automatic"
+7. On the Wi-Fi Security tab, set Security to "WPA & WPA2 Personal"
+8. Enter the password used to protect the SSID
+9. save
+
+Now you can connect your client devices to this newly-created AP!
+
 # wifiap
 Automate the standup of a wifi access point in Kali Linux to monitor WiFi traffic 
 
